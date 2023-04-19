@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Formulario</title>
+    <style>
+    h1{color: rgb(11, 77, 219);
+    }
+    .para1{
+      color: rgb(8, 228, 92); 
+    }
+    fieldset{
+      border-color: aqua;
+    }
+    </style>
+  </head>
+
+  <body>
+    <!--Isso não aparece na tela-->
+    <h1 style="color: rgb(100, 5, 5);">LISTA NÃO ODERNADA</h1>
+    <ul>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ul>
+    <h1>LISTA ODERNADA</h1>
+    <ul>
+      <ul>
+        ITEM 1
+      </ul>
+      <ul>
+        ITEM 2
+      </ul>
+      <ul>
+        IETM 3
+      </ul>
+    </ul>
+    <h1>FORMULARIO</h1>
+
+    <fieldset>
+      <legend>Formulario do contato</legend>
+      <form action="processa.php" method="post">
+        <label for="textnome">Name:</label>
+        <input type="text" id="textname" name="textname" /><br />
+
+        <label for="textemail">email:</label>
+        <input
+          type="email"
+          id="textemail"
+          name="textemail"
+          placeholder="email@gmail.com"
+        /><br />
+
+        <label for="texTelefone">Telefone:</label>
+        <input
+          type="tel"
+          id="textTelefone"
+          name="txtTelefone"
+          placeholder="(xx) xxxxxx-xxxxx"
+        /><br>
+
+        <label for="texDemanda">Motivo do contato</label>
+        <select name="txtDemanda" id="txtDemanda">
+          <option value="">Seleção de opção</option>
+          <option value="Elogio">Elogio</option>
+          <option value="Reclamacao">Reclamação</option>
+          <option value="Duvidas">Duvidas</option>
+          <option value="Outro">Outro Assunto</option>
+        </select> <br>
+
+        <label for="textlist">Motivo do contato</label>
+        <input list="textlist">
+        <datalist id="textlist">
+          <option value="">
+            <option value="">Seleção de opção</option>
+          <option value="Elogio">Elogio</option>
+          <option value="Reclamacao">Reclamação</option>
+          <option value="Duvidas">Duvidas</option>
+          <option value="Outro">Outro Assunto</option>
+          </option>
+        </datalist><br>
+        
+        <label for="Mensagens">Mensagens</label>
+        <textarea name="txtmensagem" id="txtmensagens" cols="30" rows="5" placeholder="digite sua mensagem"></textarea>
+          <input type="reset" value="limpar">
+          <input type="submit" value="Enviar mensagem">
+      </form>
+    </fieldset>
+    <h1>Tipos de input</h1>
+    <input type="checkbox">Internet <br>
+    <input type="radio">Sim <br>
+    <input type="color"><br>
+    <input type="date"><br>
+    <input type="datetime-local"><br>
+    <input type="file"><br>
+    <input type="number"><br>
+    <input type="password"><br>
+    <input type="range"><br>
+    <input type="week"><br>
+
+<p>Texto do paragrafo</p>
+    <div id="txtnoticia">
+      <p>Noticia</p>
+    </div>
+
+    Cor de fundo
+<h1 style="background-color:DodgerBlue;">Cor de Fundo</h1>
+
+Cor do Texto
+<h1 style="color:Tomato;">Cor do texto</h1>
+
+Cor da Borda
+<h1 style="border:2px solid Tomato;">Cor da Borda</h1>
+
+  </body>
+</html>
