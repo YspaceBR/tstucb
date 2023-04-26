@@ -1,0 +1,70 @@
+a:link{
+    color: green;
+    background-color: aqua;
+}
+
+a:hover{
+    color: brown;
+    background-color: black;
+}
+
+a:visited{
+    background-color: rgb(248, 6, 6);
+}
+
+a:active{
+    background-color: rgb(217, 255, 2);
+}
+
+.container{
+    font-size: 25px;
+}
+
+.box p{
+    color: rgb(255, 0, 0);
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: 700;
+    font-style: italic;
+    text-decoration: none; 
+    text-align: justify;
+    letter-spacing: 5px;
+    word-spacing: 20px;
+    line-height: 15px;
+    text-indent: 100px;
+}
+/*comentario2*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 300vh;
+}
+.container2{
+    position: relative;
+    left: 10vh;
+    top: 0px;
+    margin-top: 200px;
+    width: 400px;
+    height: 400px;
+    padding: 5px;
+   background-color: rgb(6, 2, 255);
+   color: aliceblue;
+   text-align: center;
+}
+
+.box2{
+    position: inherit;
+    left: 100px;
+    top: 1%;
+    width: 200px;
+    height: 200px;
+    padding: 5px;
+   background-color: rgb(235, 45, 11);
+color: aliceblue;
+text-align: center; 
+}
+
