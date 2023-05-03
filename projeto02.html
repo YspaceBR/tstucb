@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cordefundo.css">
+</head>
+<style>
+    .logo{
+        background-color: rgb(1, 1, 97);
+    }
+.banner{
+    background-color:gray
+}
+    h1{
+        color: hwb(0 93% 7%);
+    }
+
+    h2{
+        color: aliceblue;
+    }
+
+
+</style>
+<div>
+    <div class="logo">
+        <img src="https://ucb.catolica.edu.br/portal/wp-content/uploads/2021/06/catolica-de-brasilia.svg">
+        <section id="#" style="text-align: right;">
+            <ul>
+            <a href="home">Home</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#Preços">Preços</a>
+            <a href="#Serviços">Serviços</a>
+            <a href="#contato">Contato</a>
+        </ul>
+        </section>
+        <hr>
+    </div>
+
+  <section class="banner" style="text-align: center;" >
+    <div class="texto">
+        <h1 class="texto">Desenvolvimento Front-End</h1>
+        <h2 class="sub_titulo">Segundo Projeto</h2>
+        <div class="botoes">
+            <button class="n-overlay">Saiba Mais</button>
+            <button class="overlay">Contatos</button>
+        </div>
+    </div>
+  </section>
+
+  <fieldset>
+    <section class="formulario" style="text-align: center;">
+    <legend><h2>Contato</h2></legend>
+    <form action="processa.php" method="post">
+      <label for="textnome">Name:</label>
+      <input type="text" id="textname" name="textname" /><br />
+
+      <label for="textemail">email:</label>
+      <input
+        type="email"
+        id="textemail"
+        name="textemail"
+        placeholder="email@gmail.com"
+      /><br />
+
+      <label for="texTelefone">Telefone:</label>
+      <input
+        type="tel"
+        id="textTelefone"
+        name="txtTelefone"
+        placeholder="(xx) xxxxxx-xxxxx"
+      /><br>
+      
+      <label for="Mensagens">Mensagens</label>
+      <textarea name="txtmensagem" id="txtmensagens" cols="30" rows="5" placeholder="digite sua mensagem"></textarea>
+        <input type="reset" value="limpar">
+        <input type="submit" value="Enviar mensagem">
+    </form>
+</section>
+  </fieldset>
+
+</body>
+</html>
