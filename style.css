@@ -1,0 +1,183 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0%;
+    padding: 0;
+    
+}
+
+.search-box{
+    position: absolute;
+    top: 0%;
+    left: 75%;
+    transform: translate(30%,30%);
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+
+}
+
+.search-bnt{
+    color: blue;
+    float: right;
+    width: 40px;
+    border-radius: 50%;
+    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    float: none;
+    padding: 0;
+    color: rgb(0, 0, 0);
+}
+h1 {
+    margin: 0;
+}
+
+#logo {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 5px; /* Defina a posição vertical */
+    right: 400px; /* Defina a posição horizontal */
+}
+nav{
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+nav ul li:hover {
+    text-decoration: underline;
+}
+
+section.conteudo {
+    display: none;
+    padding: 24px;
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Estilos para telas maiores (computador) */
+@media screen and (min-width: 768px) {
+    nav ul li {
+        font-size: 18px;
+    }
+
+    section.conteudo {
+        display: block;
+    }
+}
+
+/* Estilos para telas menores (celular) */
+@media screen and (max-width: 767px) {
+    nav ul {
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    section.conteudo {
+        display: block;
+        margin-top: 10px;
+    }
+}
+
+
+
+#divBusca{
+    background-color:#E0EEEE;
+    border:solid 2px #5F9EA0;
+    border-radius:10px;
+    width:300px;
+    height:32px;
+  }
+  
+  #txtBusca{
+    float:right;
+    background-color:transparent;
+    padding-left:5px;
+    font-size:18px;
+    border:none;
+    height:32px;
+    width:191px;
+  }
+  
+  #btnBusca{
+    border:none;
+    float:right;
+    height:32px;
+    border-radius:0 7px 7px 0;
+    width:70px;
+    font-weight:bold;
+    background:#5F9EA0;
+  }
+  
+  #divBusca img{
+    float:left;
+  }
+
+header nav {
+    background-color: #333;
+    padding: 10px;
+}
+
+.menu-icon {
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li {
+    margin-bottom: 10px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked~.menu {
+    display: block;
+}
