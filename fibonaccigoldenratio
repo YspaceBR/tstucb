@@ -1,0 +1,103 @@
+.data
+fibonnaci30: .asciiz "O valor do fibonnaci de 30: "   
+fibonnaci41: .asciiz "O valor do fibonnaci de 41: "  
+fibonnaci40: .asciiz "O valor do fibonnaci de 40: "
+resultado_razaoaurea: .asciiz "O resultado da razão áurea é: "
+
+.text
+.globl main
+
+main: 
+  li $a0, 30
+  jal fibonacci
+  move $s1, $v0 # armazena o valor do 30° termo de fibonacci
+  
+
+  li $a0, 41
+  jal fibonacci
+  move $s2, $v0 # valor do 41° termo de fibonacci
+  
+
+  li $a0, 40
+  jal fibonacci
+  move $s3, $v0 # valor do 40° termo de fibonacci
+  
+# exibindo o valor do fibonnaci 30
+  la $a0, fibonnaci30   
+  li $v0, 4        
+  syscall
+  
+  li $v0, 1
+  move $a0, $s1
+  syscall
+  
+  li $v0, 11
+  la $a0, 10 # '\n'
+  syscall
+  
+  # exibindo o valor do fibonnaci 41
+  la $a0, fibonnaci41    
+  li $v0, 4        
+  syscall
+  
+  li $v0, 1
+  move $a0, $s2
+  syscall
+  
+  li $v0, 11
+  la $a0, 10 # '\n'
+  syscall
+  
+  # exibindo o valor do fibonnaci 40
+  la $a0, fibonnaci40   
+  li $v0, 4        
+  syscall
+  
+  li $v0, 1
+  move $a0, $s3
+  syscall
+
+  li $v0, 11
+  la $a0, 10 # '\n'
+  syscall
+
+ # divisão dos resultados
+  mtc1 $s2, $f2     
+  mtc1 $s3, $f4     
+  cvt.s.w $f2, $f2  
+  cvt.s.w $f4, $f4  
+  div.s $f0, $f2, $f4   
+
+  # exibindo o resultado da razão áurea de 41 e 40
+  li $v0, 4
+  la $a0, resultado_razaoaurea
+  syscall
+
+  li $v0, 2         
+  mov.s $f12, $f0   
+  syscall
+
+  # end
+  li $v0, 10
+  syscall
+
+fibonacci:
+    li $t0, 2 
+    li $t1, 1 
+    li $t2, 1 
+    ble $a0, $zero, zero
+    fibonacci_loop:
+      beq $a0, $t0, end_loop
+      add $t3, $t1, $t2
+      move $t1, $t2
+      move $t2, $t3
+      addi $t0, $t0, 1
+      j fibonacci_loop
+    end_loop:
+      move $v0, $t3 
+      j pos_zero
+    zero:
+      move $v0, $zero 
+    pos_zero:
+    jr $ra 
+
