@@ -2,7 +2,7 @@
 fibonnaci30: .asciiz "O valor do fibonnaci de 30: "   
 fibonnaci41: .asciiz "O valor do fibonnaci de 41: "  
 fibonnaci40: .asciiz "O valor do fibonnaci de 40: "
-resultado_razaoaurea: .asciiz "O resultado da razão áurea é: "
+resultado_razaoaurea: .asciiz "O resultado da razÃ£o Ã¡urea Ã©: "
 
 .text
 .globl main
@@ -10,19 +10,17 @@ resultado_razaoaurea: .asciiz "O resultado da razão áurea é: "
 main: 
   li $a0, 30
   jal fibonacci
-  move $s1, $v0 # armazena o valor do 30° termo de fibonacci
-  
+  move $s1, $v0 # armazena o valor do 30Â° termo de fibonacci
 
   li $a0, 41
   jal fibonacci
-  move $s2, $v0 # valor do 41° termo de fibonacci
-  
+  move $s2, $v0 # valor do 41Â° termo de fibonacci
 
   li $a0, 40
   jal fibonacci
-  move $s3, $v0 # valor do 40° termo de fibonacci
+  move $s3, $v0 # valor do 40Â° termo de fibonacci
   
-# exibindo o valor do fibonnaci 30
+  # exibindo o valor do fibonnaci 30
   la $a0, fibonnaci30   
   li $v0, 4        
   syscall
@@ -32,7 +30,7 @@ main:
   syscall
   
   li $v0, 11
-  la $a0, 10 # '\n'
+  li $a0, 10 # '\n'
   syscall
   
   # exibindo o valor do fibonnaci 41
@@ -45,7 +43,7 @@ main:
   syscall
   
   li $v0, 11
-  la $a0, 10 # '\n'
+  li $a0, 10 # '\n'
   syscall
   
   # exibindo o valor do fibonnaci 40
@@ -58,17 +56,46 @@ main:
   syscall
 
   li $v0, 11
-  la $a0, 10 # '\n'
+  li $a0, 10 # '\n'
   syscall
 
- # divisão dos resultados
-  mtc1 $s2, $f2     
-  mtc1 $s3, $f4     
+  # Calcula e exibe a razÃ£o Ã¡urea
+  move $a0, $s2  # Passa o valor de Fibonacci(41) para $a0
+  move $a1, $s3  # Passa o valor de Fibonacci(40) para $a1
+  jal razao_aurea
+
+  # end
+  li $v0, 10
+  syscall
+
+fibonacci:
+  li $t0, 2 
+  li $t1, 1 
+  li $t2, 1 
+  ble $a0, $zero, zero
+  fibonacci_loop:
+    beq $a0, $t0, end_loop
+    add $t3, $t1, $t2
+    move $t1, $t2
+    move $t2, $t3
+    addi $t0, $t0, 1
+    j fibonacci_loop
+  end_loop:
+    move $v0, $t3 
+    j pos_zero
+  zero:
+    move $v0, $zero 
+  pos_zero:
+    jr $ra 
+
+  razao_aurea:
+  mtc1 $a0, $f2     
+  mtc1 $a1, $f4     
   cvt.s.w $f2, $f2  
   cvt.s.w $f4, $f4  
   div.s $f0, $f2, $f4   
 
-  # exibindo o resultado da razão áurea de 41 e 40
+  # exibindo o resultado da razÃ£o Ã¡urea de 41 e 40
   li $v0, 4
   la $a0, resultado_razaoaurea
   syscall
@@ -77,27 +104,4 @@ main:
   mov.s $f12, $f0   
   syscall
 
-  # end
-  li $v0, 10
-  syscall
-
-fibonacci:
-    li $t0, 2 
-    li $t1, 1 
-    li $t2, 1 
-    ble $a0, $zero, zero
-    fibonacci_loop:
-      beq $a0, $t0, end_loop
-      add $t3, $t1, $t2
-      move $t1, $t2
-      move $t2, $t3
-      addi $t0, $t0, 1
-      j fibonacci_loop
-    end_loop:
-      move $v0, $t3 
-      j pos_zero
-    zero:
-      move $v0, $zero 
-    pos_zero:
-    jr $ra 
-
+  jr $ra
